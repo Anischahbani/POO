@@ -6,9 +6,12 @@ class Livre{
     public $content;
 
     
-
+    
     public function setContent($content){
-        if (empty ($content))
+        if (empty ($content) || strlen($content) < 250 ){
+            throw new Exception('le titre du livre ne peut pas etre vide nin inférieur à 255 ');
+        }
+    $this->content;
     }
     public function getTitle(){
         return "Le titre du livre est :'$this->title.'";
@@ -36,6 +39,8 @@ $titre_livre = $livre->getTitle();
 echo $titre_livre;
 
 echo $livre->searchword('Lorem');
-} catch (Exeption $error){
+} catch (Exception $error){
     echo "Erreur :  <b>".$error->getMessage()."</b>";
+    echo" à la ligne <b>".$error->getLigne()."</b>";
+    echo"du fichier <b>".$error->getFile()."</b>";
 }
