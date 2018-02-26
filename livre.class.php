@@ -6,7 +6,7 @@ class Livre{
     public $content;
 
     
-    
+
     public function setContent($content){
         if (empty ($content) || strlen($content) < 250 ){
             throw new Exception('le titre du livre ne peut pas etre vide nin inférieur à 255 ');
